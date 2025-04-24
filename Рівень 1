@@ -1,0 +1,20 @@
+@file:JvmName("JDoodle")
+fun main() 
+{
+    println("Введіть цілі числа: ")
+    val input = readLine() ?: ""
+    val numb = input.split(" ").mapNotNull { it.toIntOrNull() 
+    }
+    if (numb.size < 5) 
+    {
+        println("Потрібно щонайменше 5 чисел!")
+        return
+    }
+    val five = numb.sortedDescending().take(5)
+    var sum = 0
+    for (n in five) 
+    {
+        sum += n * n * n
+    }
+    println("Сума кубів 5 найбільших чисел: $sum")
+}
